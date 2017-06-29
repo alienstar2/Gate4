@@ -74,53 +74,6 @@ install_rocks() {
   fi
 }
 
-install2() {
-  git pull
-  git submodule update --init --recursive
-  patch -i "system/disable.patch" -p 0 --batch --forward
-  RET=$?;
-
-  cd tg
-  if [ $RET -ne 0 ]; then
-    autoconf -i
-  fi
-  ./configure && make
-
-  RET=$?; if [ $RET -ne 0 ]; then
-    echo "Error. Exiting."; exit $RET;
-  fi
-  cd ..
-  install_luarocks
-  install_rocks
-  
-  sleep 0.9
-  echo ""
-  echo ""
-  echo "Bot has been installed! you can run bot with:"
-  echo ""
-  echo "RUN BOT WITH CLI MOD:"
-  echo "$0"
-  echo ""
-  sleep 0.9
-  echo ""
-  echo "RUN BOT WITH SELF MOD:"
-  echo "$0 self"
-  echo ""
-  sleep 0.9
-  echo ""
-  echo "RUN BOT WITH API MOD:"
-  echo "$0 api"
-  echo ""
-  sleep 0.9
-  echo ""
-  echo "RUN BOT WITH ICLI MOD:"
-  echo "$0 icli"
-  echo ""
-  echo ""
-  
-  exit 1
-}
-
 sudos() {
   read -p "Do you want to update the project? [y/n] = "
 	if [ "$REPLY" == "y" ] || [ "$REPLY" == "Y" ]; then
