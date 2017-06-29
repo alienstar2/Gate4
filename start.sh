@@ -93,7 +93,7 @@ sudos() {
 
 install() {
   read -p "Do you want to update the project? [y/n] = "
-	if [ "$REPLY" == "y" ] || [ "$REPLY" == "Y" ]; then
+	if [ "$REPLY" == "n" ] || [ "$REPLY" == "N" ]; then
         sudo apt-get update
 	    wait
 	    sudo apt-get upgrade
@@ -101,7 +101,7 @@ install() {
 	    sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev -y
 	    wait
 		install2
-    elif [ "$REPLY" == "n" ] || [ "$REPLY" == "N" ]; then
+    elif [ "$REPLY" == "y" ] || [ "$REPLY" == "Y" ]; then
         install2
 	else
 	    sudos
