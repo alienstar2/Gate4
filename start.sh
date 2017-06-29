@@ -91,23 +91,6 @@ sudos() {
     fi
 }
 
-install() {
-  read -p "Do you want to update the project? [y/n] = "
-	if [ "$REPLY" == "n" ] || [ "$REPLY" == "N" ]; then
-        sudo apt-get update
-	    wait
-	    sudo apt-get upgrade
-	    wait
-	    sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev make unzip git redis-server g++ libjansson-dev libpython-dev expat libexpat1-dev -y
-	    wait
-		install2
-    elif [ "$REPLY" == "y" ] || [ "$REPLY" == "Y" ]; then
-        install2
-	else
-	    sudos
-    fi
-}
-
 que() {
 read -p "Do you want to install starter files? [y/n] = "
 	if [ "$REPLY" == "y" ] || [ "$REPLY" == "Y" ]; then
