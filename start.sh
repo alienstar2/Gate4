@@ -297,7 +297,7 @@ elif [ "$1" = "self" ]; then
 	fi
 	cd ..
    
-  while true; do
+  while false; do
    rm -r ../.telegram-cli/state
    ./tg/bin/telegram-cli -k ./tg/tg-server.pub -s ./system/self.lua -l 1 -E $@
    sleep 3
